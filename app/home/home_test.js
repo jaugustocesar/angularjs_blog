@@ -14,7 +14,6 @@ describe('AngularJS Blog Application', function () {
         }));
 
         it('should create show blog entry count', function () {
-            console.log("blz");
             expect(homeCtrl).toBeDefined();
         });
 

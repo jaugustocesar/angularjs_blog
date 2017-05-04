@@ -4,7 +4,7 @@
 angular.module('blogApp', [
     'ngRoute',
     'blogApp.home',
-    'myApp.view2',
+    'blogApp.post',
     'myApp.version'
 
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {

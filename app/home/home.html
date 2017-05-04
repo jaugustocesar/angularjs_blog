@@ -1,1 +1,22 @@
-{{blogArticle}}
+<div ng-include src="'../menu.html'"></div>
+
+<div style="clear:both;"></div>
+
+<div id="container" class="container">
+    <div class="blog-post-label">Blog Posts</div>
+    <div class="post-wrapper">
+        <div ng-repeat="blogPost in blogList">
+            <div class="blog-post-outer">
+                <div class="blog-intro-text">
+                    Posted: {{blogPost.date | date:'MM/dd/yyyy @ h:mm'}}
+                </div>
+                <div class="blog-intro-text">
+                    {{blogPost.introText}}
+                </div>
+                <div class="blog-read-more">
+                    <a href="#!blogPost/{{blogPost._id}}">Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
