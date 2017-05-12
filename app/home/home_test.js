@@ -1,6 +1,6 @@
 'use strict';
 
-describe('AngularJS Blog Application', function () {
+describe('blogApp.home module', function () {
 
     beforeEach(module('blogApp.home'));
 
@@ -14,7 +14,8 @@ describe('AngularJS Blog Application', function () {
         }));
 
         it('should create show blog entry count', function () {
-            expect(homeCtrl).toBeDefined();
+            console.log("blogList: " + scope.blogList.length);
+            expect(scope.blogList.length).toEqual(2);
         });
 
     });
