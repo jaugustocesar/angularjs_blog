@@ -2,9 +2,10 @@
 
 var blogApp = angular.module('blogApp', [
     'ngRoute',
+    'myApp.version',
     'blogControllers',
     'blogServices',
-    'myApp.version'
+    'blogBusinessServices'
 ]);
 
 blogApp.config(['$locationProvider', '$routeProvider',
