@@ -1,5 +1,6 @@
 {
-  "strict": "global",
+  "strict": false, // "global",
+  "devel": true,
   "globals": {
     // Angular
     "angular": false,

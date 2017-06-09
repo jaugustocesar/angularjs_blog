@@ -12,28 +12,39 @@ module.exports = function (config) {
             'bower_components/angular-cookies/angular-cookies.js',
             'components/**/*.js',
             'js/*.js',
-            '../test/unit/*Spec.js'
+            '../test/unit/*Spec.js',
+            "partials/*.html"
         ],
 
         autoWatch: true,
 
-        frameworks: ['jasmine'],
+        frameworks: [
+            'jasmine'
+        ],
 
         browsers: [
-            'Chrome',
-            'Firefox'
+            'Chrome'
         ],
 
         plugins: [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-ng-html2js-preprocessor'
         ],
 
         junitReporter: {
             outputFile: 'test_out/unit.xml',
             suite: 'unit'
+        },
+
+        preprocessors: {
+            'partials/*.html': ['ng-html2js']
+        },
+
+        ngHtml2JsPreprocessor: {
+            // stripPrefix: 'partials/'
         }
 
     });

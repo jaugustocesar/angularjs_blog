@@ -1,35 +1,39 @@
 /* Especificações do Jasmine para os controladores */
+(function () {
+    'use strict';
 
-describe('AngularJS Blog Service Testing', function () {
-    describe('test BlogList', function () {
-        var $rootScope;
-        var blogList;
+    describe('AngularJS Blog Service Testing', function () {
+        describe('test BlogList', function () {
+            var $rootScope;
+            var blogList;
 
-        beforeEach(module('blogServices'));
+            beforeEach(module('blogServices'));
 
-        beforeEach(inject(function($injector) {
-            $rootScope = $injector.get('$rootScope');
-            blogList = $injector.get('BlogList');
-        }));
+            beforeEach(inject(function($injector) {
+                $rootScope = $injector.get('$rootScope');
+                blogList = $injector.get('BlogList');
+            }));
 
-        it('should test BlogList service', function () {
-            expect(blogList).toBeDefined();
+            it('should test BlogList service', function () {
+                expect(blogList).toBeDefined();
+            });
+        });
+
+        describe('test BlogPost', function() {
+            var $rootScope;
+            var blogPost;
+
+            beforeEach(module('blogServices'));
+
+            beforeEach(inject(function($injector) {
+                $rootScope = $injector.get('$rootScope');
+                blogPost = $injector.get('BlogPost');
+            }));
+
+            it('should test BlogPost service', function() {
+                expect(blogPost).toBeDefined();
+            });
         });
     });
-
-    describe('test BlogPost', function() {
-        var $rootScope;
-        var blogPost;
-
-        beforeEach(module('blogServices'));
-
-        beforeEach(inject(function($injector) {
-            $rootScope = $injector.get('$rootScope');
-            blogPost = $injector.get('BlogPost');
-        }));
-
-        it('should test BlogPost service', function() {
-            expect(blogPost).toBeDefined();
-        });
-    });
-});
+    
+}());
