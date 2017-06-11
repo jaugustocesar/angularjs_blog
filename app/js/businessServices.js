@@ -1,10 +1,12 @@
-(function () {
-    'use strict';
+(function() {
+    "use strict";
+    var blogBusinessServices = angular.module("blogBusinessServices", [
+        "ngCookies"
+    ]);
 
-    var blogBusinessServices = angular.module('blogBusinessServices', ['ngCookies']);
-
-    blogBusinessServices.factory('checkCreds',
-        ['$cookies', function($cookies) {
+    blogBusinessServices.factory("checkCreds", [
+        "$cookies",
+        function($cookies) {
             return function() {
                 var returnVal = false;
                 var blogCreds = $cookies.blogCreds;
@@ -13,22 +15,26 @@
                 }
                 return returnVal;
             };
-    }]);
+        }
+    ]);
 
-    blogBusinessServices.factory('getToken',
-        ['$cookies', function($cookies) {
+    blogBusinessServices.factory("getToken", [
+        "$cookies",
+        function($cookies) {
             return function() {
                 var returnVal = "";
                 var blogCreds = $cookies.blogCreds;
-                if (blogCreds !== undefined && blogCreds != "") {
+                if (blogCreds !== undefined && blogCreds !== "") {
                     returnVal = btoa(blogCreds);
                 }
                 return returnVal;
             };
-    }]);
+        }
+    ]);
 
-    blogBusinessServices.factory('getUsername',
-        ['$cookies', function($cookies) {
+    blogBusinessServices.factory("getUsername", [
+        "$cookies",
+        function($cookies) {
             return function() {
                 var returnVal = "";
                 var blogUsername = $cookies.blogUsername;
@@ -37,22 +43,27 @@
                 }
                 return returnVal;
             };
-    }]);
+        }
+    ]);
 
-    blogBusinessServices.factory('setCreds',
-        ['$cookies', function($cookies) {
+    blogBusinessServices.factory("setCreds", [
+        "$cookies",
+        function($cookies) {
             return function(un, pw) {
                 var token = un.concat(":", pw);
                 $cookies.blogCreds = token;
                 $cookies.blogUsername = un;
             };
-    }]);
+        }
+    ]);
 
-    blogBusinessServices.factory('deleteCreds',
-        ['$cookies', function($cookies) {
+    blogBusinessServices.factory("deleteCreds", [
+        "$cookies",
+        function($cookies) {
             return function() {
                 $cookies.blogCreds = "";
                 $cookies.blogUsername = "";
             };
-    }]);
-}());
+        }
+    ]);
+})();
